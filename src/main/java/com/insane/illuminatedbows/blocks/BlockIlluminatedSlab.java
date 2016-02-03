@@ -58,7 +58,7 @@ public class BlockIlluminatedSlab extends Block {
 
     @Override
     public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) {
-        if (player.getHeldItem().getItem().equals((new ItemStack(this)).getItem())) {
+        if (player.getHeldItem() != null && player.getHeldItem().getItem().equals((new ItemStack(this)).getItem())) {
             if (side == 1 && world.getBlock(x, y, z) == IlluminatedBlocks.illuminatedSlab && world.getBlockMetadata(x, y, z) == 0) {
                 world.setBlockMetadataWithNotify(x, y, z, 1, 2);
                 world.playSoundEffect((double) x + 0.5D, (double) y + 0.5D, (double) z + 0.5D, "dig.wood", 1.0F, world.rand.nextFloat() * 0.1F + 0.9F);
